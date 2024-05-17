@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: sslforfree-prod
+spec:
+  acme:
+    server: https://acme.sslforfree.com/v2/DV90
+    email: kisk20@live.com
+    privateKeySecretRef:
+      name: sslforfree-prod
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
